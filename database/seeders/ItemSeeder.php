@@ -14,7 +14,7 @@ class Itemseeder extends Seeder
             'itemnaam' => 'Tonic',
             'itemprijs' => '2.95',
             'subdrankkort' => 'fd'
-        ]);
+        ]); //maakt voor elk apart item een rij aan in de database
 
         Item::create([
             'itemnaam' => 'Seven Up',

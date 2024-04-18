@@ -12,7 +12,7 @@ class DrankSeeder extends Seeder
         Drank::create([
             'dranknaam' => 'Dranken',
             'drankkort' => 'dr'
-        ]);
+        ]); //maakt voor elk apart item een rij aan in de database
 
         Drank::create([
             'dranknaam' => 'Hapjes',

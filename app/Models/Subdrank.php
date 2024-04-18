@@ -9,11 +9,11 @@ class Subdrank extends Model
 {
     use HasFactory;
 
-    protected $table = 'subdrank';
+    protected $table = 'subdrank'; //Tabelnaam
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id'; //Primaire sleutel
 
-    protected $fillable = ['subdranknaam', 'drankkort', 'subdrankkort'];
+    protected $fillable = ['subdranknaam', 'drankkort', 'subdrankkort']; //Vulbare velden
 
-    public $timestamps = false;
+    public $timestamps = false;//Geen timestamps
 }

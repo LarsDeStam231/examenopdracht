@@ -9,11 +9,11 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $table = 'item';
+    protected $table = 'item'; //tabelnaam
 
-    protected $primarykey = 'id';
+    protected $primarykey = 'id'; //Primaire sleutel
 
-    protected $fillable = ['itemnaam', 'itemprijs', 'subdrankkort'];
+    protected $fillable = ['itemnaam', 'itemprijs', 'subdrankkort']; //Vulbare velden
 
-    public $timestamps = false;
+    public $timestamps = false; //Geen timestamps
 }

@@ -3,15 +3,16 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\User;
+use Illuminate\Support\Facades\Event;
 use App\Observers\UserObserver;
+use App\Models\User;
 
-class AppServiceProvider extends ServiceProvider
+class EventServiceProvider extends ServiceProvider
 {
+    protected $listen = [
+        // ...
+    ];
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot()
     {
         User::observe(UserObserver::class);

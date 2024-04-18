@@ -14,7 +14,7 @@ class Subdrankseeder extends Seeder
             'subdranknaam' => 'Warme dranken',
             'drankkort' => 'dr',
             'subdrankkort' => 'wd'
-        ]);
+        ]); //maakt voor elk apart item een rij aan in de database
     
         Subdrank::create([
             'subdranknaam' => 'Bieren',
