@@ -4,8 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 use App\Models\Role;
 
 class User extends Authenticatable
@@ -28,20 +30,17 @@ class User extends Authenticatable
 
     public function hasRole($role)
     {
-        return $this->roles()->where('name', $role)->exists();
+        return $this->rolename === $role;
     }
 
-    public function assignRoleBasedOnEmail()
-{
-    if (strpos($this->email, 'admin') !== false) {
-        $this->assignRole('admin');
-    } elseif (strpos($this->email, 'kok') !== false) {
-        $this->assignRole('kok');
-    } elseif (strpos($this->email, 'barman') !== false) {
-        $this->assignRole('barman');
-    } else {
-        $this->assignRole('gebruiker');
+    public function hasAnyRole($roles)
+    {
+        return in_array($this->rolename, $roles);
     }
-}
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 
 }

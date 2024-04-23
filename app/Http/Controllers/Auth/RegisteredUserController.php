@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Validation\Rule;
@@ -54,6 +55,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        $user = Auth::user(); // Haal de ingelogde gebruiker op
+        Session::put('user', $user); // Sla de gebruiker op in de sessie
 
         return redirect(route('dashboard', absolute: false));
     }

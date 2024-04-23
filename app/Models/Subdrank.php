@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Item;
 
 class Subdrank extends Model
 {
@@ -16,4 +17,14 @@ class Subdrank extends Model
     protected $fillable = ['subdranknaam', 'drankkort', 'subdrankkort']; //Vulbare velden
 
     public $timestamps = false;//Geen timestamps
+
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'subdrankkort', 'subdrankkort');
+    }
+
+    public function drank()
+    {
+        return $this->belongsTo(Drank::class, 'drankkort', 'drankkort');
+    }
 }

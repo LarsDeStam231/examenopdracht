@@ -17,4 +17,10 @@ class Drank extends Model
 
     // Geen timestamps
     public $timestamps = false;
+
+    public function subdranken()
+    {
+        return $this->hasMany(Subdrank::class);
+    }
+
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Subdrank;
 
 class Item extends Model
 {
@@ -11,9 +12,14 @@ class Item extends Model
 
     protected $table = 'item'; //tabelnaam
 
-    protected $primarykey = 'id'; //Primaire sleutel
+    protected $primaryKey = 'id'; //Primaire sleutel
 
     protected $fillable = ['itemnaam', 'itemprijs', 'subdrankkort']; //Vulbare velden
 
     public $timestamps = false; //Geen timestamps
+
+    public function subdrank()
+    {
+        return $this->belongsTo(Subdrank::class, 'subdrankkort', 'subdrankkort');
+    }
 }

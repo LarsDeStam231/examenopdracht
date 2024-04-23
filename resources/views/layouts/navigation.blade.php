@@ -15,6 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('reservations.create')" active="request()->routeIs('reservations.create')">
+                        {{ __('Reserveer nu!') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('reservations.overzicht')" active="request()->routeIs('reservations.overzicht')">
+                        {{ __('zie hier jouw overzicht') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -30,11 +30,11 @@ class UserObserver
      */
     private function assignRoleBasedOnEmail(string $email): string
     {
-        if (strpos($email, 'admin') !== false) {
+        if (strpos($email, 'adminexcellenttaste') !== false) {
             return 'admin';
-        } elseif (strpos($email, 'kok') !== false) {
+        } elseif (strpos($email, 'kokexcellenttaste') !== false) {
             return 'kok';
-        } elseif (strpos($email, 'barman') !== false) {
+        } elseif (strpos($email, 'barmanexcellenttaste') !== false) {
             return 'barman';
         } else {
             return 'gebruiker';
