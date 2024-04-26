@@ -51,7 +51,7 @@
                     </header>
 
                     <main>
-                        Test
+                        <h3><strong>Welkom op de pagina van restaurant Excellent Taste!</strong><h3>
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">

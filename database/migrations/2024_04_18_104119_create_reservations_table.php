@@ -23,6 +23,16 @@ return new class extends Migration
             $table->string('phone_number', 20);
             $table->timestamps();
         });
+
+        Schema::create('order', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $$table->unsignedBigInteger('reservation_id');
+            $table->foreign('reservation_id')->references('id')->on('reservations');
+            $table->array('selected_items'[]);
+            $table->timestamps();
+                });
     }
 
     /**
@@ -31,5 +41,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('reservations');
+        Schema::dropIfExists('order');
     }
 };

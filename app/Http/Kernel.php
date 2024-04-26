@@ -42,6 +42,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         // Voeg hier je eigen middleware toe
         'check.role.and.ownership' => \App\Http\Middleware\CheckRoleAndOwnership::class,
+        'admin' => \App\Http\Middleware\CheckRoleAndOwnership::class,
     ];
 
     // Andere eigenschappen en methoden...

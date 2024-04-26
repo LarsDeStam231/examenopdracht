@@ -13,16 +13,8 @@
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <!-- Link naar de reservatiepagina -->
-                    <a href="{{ route('reservations.create') }}" class="text-blue-500 hover:text-blue-700">
-                        {{ __('reserveren') }}
-                    </a><br>
-                    <a href="{{ route('reservations.overzicht') }}" class="text-blue-500 hover:text-blue-700">
-                        {{ __('overzicht') }}
-                    </a><br>
-                    <a href="{{ route('bestelling.makeorder') }}" class="text-blue-500 hover:text-blue-700">
-                        {{ __('bestellen') }}
-                    </a>
-
+                    <button class="category-button" onclick="window.location='{{ route('reservations.create') }}'">Reserveren</button><br>
+                    <button class="category-button" onclick="window.location='{{ route('reservations.overzicht') }}'">overzicht</button>
                     <br>
                     @if (session('success'))
         <div class="alert alert-success">

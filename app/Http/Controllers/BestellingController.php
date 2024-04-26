@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Drank;
 use App\Models\Subdrank;
 use App\Models\Item;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class BestellingController extends Controller
 {
@@ -40,7 +42,8 @@ class BestellingController extends Controller
     public function showItems(Subdrank $subdrank)
     {
         $items = $subdrank->items;
-        return view('bestelling.items', ['items' => $items]);
+        $selectedItems = [];
+        return view('bestelling.items', ['items' => $items], ['selectedItems' => $selectedItems]);
     }
 
     public function addToOrder(Request $request, $itemId)
@@ -51,5 +54,22 @@ class BestellingController extends Controller
     public function createOrder()
     {
         // Logica om de bestelling aan te maken en alle opgeslagen items in de database te zetten
+    }
+
+    public function store(Request $request)
+    {
+        $user_id = Auth::id();
+
+        $order = new Order();
+
+        // Wijs de waarden toe aan de eigenschappen van het Order model
+        $order->user_id = $request->user_id;
+        $order->reservation_id = $request->reservation_id;
+        $order->selected_items = $request->selected_items;
+
+        // Sla het Order model op
+        $order->save();
+
+        return redirect()->route('bestelling.makeorder')->with('je bestelling is aangemaakt! voeg een nieuwe bestelling toe of ga terug naar het overzicht.');
     }
 }

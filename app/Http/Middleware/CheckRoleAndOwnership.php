@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
 use App\Models\Reservation;
+use App\Http\Kernel;
 
 class CheckRoleAndOwnership
 {

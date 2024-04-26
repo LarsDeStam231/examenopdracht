@@ -10,8 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl font-bold mb-4">Reservations</h1>
+
+                
                     
-                    @if(auth()->user()->role === 'admin')
+                    @if(auth()->user()->rolename === 'admin')
                         @foreach($reservations as $reservation)
                             <li>
                                <ul>
@@ -20,11 +22,11 @@
                                     <li><strong>Tijd van reservering:</strong> {{ $reservation->reservation_time }}</li>
                                     <li><strong>Aantal personen:</strong> {{ $reservation->number_of_people }}</li>
                                     <li><strong>Allergieën:</strong> {{ $reservation->allergies }}</li>
-                                    <li><strong>Telefoonnummer:</strong> {{ $reservation->phone_number }}</li>                                   
+                                    <li><strong>Telefoonnummer:</strong> {{ $reservation->phone_number }}</li>
+                                    <li>
+                                        <button type=submit class="category-button" onclick="window.location='{{ route('bestelling.makeorder', ['reservation' => $reservation->id]) }}'">Menukaart bekijken</button>
+                                    </li>                                   
                                 </ul>
-                                    <form method="GET" action="{{ route('bestelling.makeorder') }}">
-                                        <button type="submit" class="btn btn-primary">Plaats een bestelling</button>
-                                    </form>
                             </li>
                         @endforeach
                     @else
